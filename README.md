@@ -4,10 +4,11 @@ Tools for moving WhatsApp chat history from an Android phone to an iPhone using 
 Ubuntu, based on [residentsummer/watoi](https://github.com/residentsummer/watoi), which
 needs a Mac with Xcode.
 
-**Status:** this repo currently covers getting both WhatsApp databases onto Ubuntu and
-checking that they still have the tables and columns watoi expects. watoi was written in
-2017, and WhatsApp has changed its databases since. The importer itself is not ported yet
-(see [Next steps](#next-steps)).
+**Status:** `import_chats.py` imports text messages between current WhatsApp databases
+(Android 2.26.37 to an iPhone on iOS 26). watoi was written in 2017, and WhatsApp has
+changed its databases a lot since, so this is a rewrite in Python rather than a port.
+Media files are not moved: media messages become placeholders such as `<image>`, with
+their captions. Restoring the result to an iPhone has not been confirmed yet.
 
 ## Requirements
 
@@ -107,16 +108,47 @@ sqlite3 data/msgstore.db .tables
 sqlite3 data/msgstore.db "PRAGMA table_info(<table>);"
 ```
 
-## Next steps
+## 4. Import the Android chats
 
-Not done yet:
+WhatsApp on the iPhone must be registered with the same number as the Android phone.
+Keep the iPhone in airplane mode from the backup in step 2 until the restore in step 5,
+so it doesn't receive messages the backup would miss.
 
-* Port watoi's importer (`watoi/main.m`) to Python, writing plain SQL to
-  `ChatStorage.sqlite` instead of using Apple's CoreData, adjusted to whatever step 3
-  finds.
-* Put the modified `ChatStorage.sqlite` back into the backup (updating its file size in
-  the backup's `Manifest.db`) and restore it with `idevicebackup2 restore`. Find My iPhone
-  must be off, and restoring replaces the iPhone's contents with the backup.
+```bash
+uv run import_chats.py data/msgstore.db data/ChatStorage.sqlite data/ChatStorage.new.sqlite
+```
+
+The script copies `ChatStorage.sqlite` to `ChatStorage.new.sqlite` and only changes the
+copy. It adds every message from the Android phone's visible one-to-one and group chats
+that is not already on the iPhone, skipping system notices (such as "X joined") and
+message types it can't show as text. Current iPhone WhatsApp files one-to-one chats
+under the contact's LID (WhatsApp's privacy ID) instead of the phone number, so the
+script does the same wherever the Android database knows the LID. Every column is filled
+with the values WhatsApp itself writes.
+
+Not moved: media files, reactions, links between replies and the messages they quote,
+and read receipts. Imported messages probably won't show up in WhatsApp's search, which
+uses a separate index.
+
+## 5. Put the database back and restore
+
+Work on a copy of the backup, so `data/iphone_backup` stays as your way back:
+
+```bash
+cp -a data/iphone_backup data/iphone_backup_restore
+uv run replace_in_backup.py data/iphone_backup_restore/<device id> data/ChatStorage.new.sqlite
+```
+
+Turn off Find My iPhone (Settings > your name > Find My; if Stolen Device Protection
+blocks this, turn it off first under Settings > Face ID & Passcode), then restore:
+
+```bash
+idevicebackup2 restore --system --settings --remove data/iphone_backup_restore
+```
+
+This replaces everything on the iPhone with the backup, like restoring from Finder on a
+Mac: anything added since the backup, and data that apps keep out of backups, is lost.
+The iPhone reboots when it's done.
 
 ## Alternative
 
