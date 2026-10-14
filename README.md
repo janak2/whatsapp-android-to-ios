@@ -41,7 +41,7 @@ decrypted with that key instead.
 4. Save the key in a file only you can read:
 
    ```bash
-   nano ~/wa_backup_key.txt && chmod 600 ~/wa_backup_key.txt
+   nano data/wa_backup_key.txt && chmod 600 data/wa_backup_key.txt
    ```
 
 5. Connect the phone over USB and pull the backup:
@@ -53,7 +53,7 @@ decrypted with that key instead.
 6. Decrypt it:
 
    ```bash
-   uv run wadecrypt "$(tr -d '[:space:]' < ~/wa_backup_key.txt)" data/msgstore.db.crypt15 data/msgstore.db
+   uv run wadecrypt "$(tr -d '[:space:]' < data/wa_backup_key.txt)" data/msgstore.db.crypt15 data/msgstore.db
    ```
 
 ## 2. Get the iPhone database
