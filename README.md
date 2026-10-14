@@ -7,8 +7,9 @@ needs a Mac with Xcode.
 **Status:** `import_chats.py` imports text messages between current WhatsApp databases
 (Android 2.26.37 to an iPhone on iOS 26). watoi was written in 2017, and WhatsApp has
 changed its databases a lot since, so this is a rewrite in Python rather than a port.
-Media files are not moved: media messages become placeholders such as `<image>`, with
-their captions. Restoring the result to an iPhone has not been confirmed yet.
+`import_media.py` then adds the photos, videos, documents, stickers and audio whose files
+are still on the Android phone; media it never downloaded stays a placeholder such as
+`<image>`. The text import has been restored to an iPhone, and WhatsApp kept it.
 
 ## Requirements
 
@@ -111,8 +112,8 @@ sqlite3 data/msgstore.db "PRAGMA table_info(<table>);"
 ## 4. Import the Android chats
 
 WhatsApp on the iPhone must be registered with the same number as the Android phone.
-Keep the iPhone in airplane mode from the backup in step 2 until the restore in step 5,
-so it doesn't receive messages the backup would miss.
+Keep the iPhone in airplane mode, with Wi-Fi off, from the backup in step 2 until the
+restore in step 6, so it doesn't receive messages the backup would miss.
 
 ```bash
 uv run import_chats.py data/msgstore.db data/ChatStorage.sqlite data/ChatStorage.new.sqlite
@@ -126,18 +127,38 @@ under the contact's LID (WhatsApp's privacy ID) instead of the phone number, so 
 script does the same wherever the Android database knows the LID. Every column is filled
 with the values WhatsApp itself writes.
 
-Not moved: media files, reactions, links between replies and the messages they quote,
-and read receipts. Imported messages probably won't show up in WhatsApp's search, which
-uses a separate index.
+Media messages become placeholders such as `<image>` here; step 5 turns them into real
+media where it can. Not moved: reactions, links between replies and the messages they
+quote, and read receipts. Imported messages probably won't show up in WhatsApp's search,
+which uses a separate index.
 
-## 5. Put the database back and restore
+## 5. Add photos, videos and documents
+
+Pull WhatsApp's media folder from the Android phone, then add every file that's still
+there:
+
+```bash
+sudo apt install ffmpeg poppler-utils
+adb pull /sdcard/Android/media/com.whatsapp/WhatsApp/Media data/android_media/
+uv run import_media.py data/msgstore.db data/android_media data/ChatStorage.new.sqlite \
+    data/ChatStorage.media.sqlite data/media_out
+```
+
+This copies each file into `data/media_out/Message/Media/` the way WhatsApp on the iPhone
+lays them out, makes the small `.thumb` preview WhatsApp shows in chats (with `ffmpeg`
+for videos and `pdftoppm` for PDFs), and turns its placeholder into a media message.
+Media the Android phone never downloaded, or has since deleted, keeps its placeholder.
+
+## 6. Put the database back and restore
 
 Work on a copy of the backup, so `data/iphone_backup` stays as your way back:
 
 ```bash
 cp -a data/iphone_backup data/iphone_backup_restore
-uv run replace_in_backup.py data/iphone_backup_restore/<device id> data/ChatStorage.new.sqlite
+uv run replace_in_backup.py data/iphone_backup_restore/<device id> data/ChatStorage.media.sqlite data/media_out
 ```
+
+Leave out `data/media_out` (and use `data/ChatStorage.new.sqlite`) if you skipped step 5.
 
 Turn off Find My iPhone (Settings > your name > Find My; if Stolen Device Protection
 blocks this, turn it off first under Settings > Face ID & Passcode), then restore:
@@ -148,7 +169,10 @@ idevicebackup2 restore --system --settings --remove data/iphone_backup_restore
 
 This replaces everything on the iPhone with the backup, like restoring from Finder on a
 Mac: anything added since the backup, and data that apps keep out of backups, is lost.
-The iPhone reboots when it's done.
+The iPhone reboots when it's done. Backups don't contain the apps themselves, so the apps
+then show "Waiting…" until you turn Wi-Fi on and they download again; don't delete them
+meanwhile, as that deletes their restored data. WhatsApp asks you to log in again and
+keeps the imported history.
 
 ## Alternative
 
