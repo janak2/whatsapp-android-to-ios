@@ -1,0 +1,77 @@
+version = 1
+revision = 3
+requires-python = ">=3.14"
+
+[[package]]
+name = "javaobj-py3"
+version = "0.6.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/6e/a4/a0140d76c62effc710aa180c657792236d10e43d3f993b71bafc3036fea1/javaobj_py3-0.6.1.tar.gz", hash = "sha256:088ff086c6aa2912f342754c43b0ca3a504fb869bb5e6f13395131e87744ef3c", size = 113555, upload-time = "2026-08-12T16:51:05.39Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/20/97/62180aa88dc4719116128a3c2fe22a962cbf69256d517f376565a38467a7/javaobj_py3-0.6.1-py2.py3-none-any.whl", hash = "sha256:da97c61cb050bad37cca00523b1a617cc26ed2b698b6322cbc118820a4f52b30", size = 94957, upload-time = "2026-08-12T16:51:04.022Z" },
+]
+
+[[package]]
+name = "protobuf"
+version = "5.27.5"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/d8/a6/94e05400fc84f90f1c1476c23388bf2a3d5b8a5f88fdf1f45dc778ba4412/protobuf-5.27.5.tar.gz", hash = "sha256:7fa81bc550201144a32f4478659da06e0b2ebe4d5303aacce9a202a1c3d5178d", size = 401551, upload-time = "2024-09-18T22:58:34.032Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/d9/c9/5ee60cce78a83517b66aaf902c936c6db5b23afd6df7f9906aa67e4931a5/protobuf-5.27.5-cp310-abi3-win32.whl", hash = "sha256:b46647660bc433a43519af7faabe424bf2feb8db6e2293e6906c7aa3a1abefe2", size = 405813, upload-time = "2024-09-18T22:58:19.462Z" },
+    { url = "https://files.pythonhosted.org/packages/78/46/68408f3a013fee550522930db0eb28df4716c5b2bac5055f00847d6dfc91/protobuf-5.27.5-cp310-abi3-win_amd64.whl", hash = "sha256:5aa37101a985559722e84badf583532b0ec92616a2cc5d3f59f6152f136ca46a", size = 426904, upload-time = "2024-09-18T22:58:21.472Z" },
+    { url = "https://files.pythonhosted.org/packages/52/11/e372413162ff4da44edf9220eb5d2cd03ff6a4b87a9b7b298ca729ddbb96/protobuf-5.27.5-cp38-abi3-macosx_10_9_universal2.whl", hash = "sha256:83fc15159713bb1de8e24e025d8739c6c9c6856021d2834d6feb0d1d5c6ec3c6", size = 412232, upload-time = "2024-09-18T22:58:23.158Z" },
+    { url = "https://files.pythonhosted.org/packages/0a/3c/bd25f165ba1bcbc43a0211c962c97007b6d88668a798a2d3c99e7688a08c/protobuf-5.27.5-cp38-abi3-manylinux2014_aarch64.whl", hash = "sha256:56cb4f9ade31597d06a5aca264cb5d9bf445dc07758296004ead080ec8e4087c", size = 307126, upload-time = "2024-09-18T22:58:24.408Z" },
+    { url = "https://files.pythonhosted.org/packages/34/8a/1538a34d6f57d9a2ef68384ef39cca1e00cb4d19398be2873995a50657c7/protobuf-5.27.5-cp38-abi3-manylinux2014_x86_64.whl", hash = "sha256:aab519ebdc1bd7469e7df4011545ff4f81decad6d02f0185ddbe6ee496f1d940", size = 309244, upload-time = "2024-09-18T22:58:25.558Z" },
+    { url = "https://files.pythonhosted.org/packages/5b/22/f3dde34910f908b927dfd6870f33adbb963c90360324d33eb334722acd59/protobuf-5.27.5-py3-none-any.whl", hash = "sha256:03a25e0b2b0271bc63fe009d30890ba907fd36dbe2b8e4851da4bb893d251d05", size = 164755, upload-time = "2024-09-18T22:58:32.616Z" },
+]
+
+[[package]]
+name = "pycryptodomex"
+version = "3.24.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/f4/e7/50e72301e32acb73a314e663c2014e1ddefc019d5f434ff14ec89861d664/pycryptodomex-3.24.1.tar.gz", hash = "sha256:09081666ffc599976c0b8b29caf2cf82212c0f05bed233c8f8ed53e4f6e1d356", size = 4934627, upload-time = "2026-10-11T19:26:49.624Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/48/3b/aeef17f479f6c7e367a9f6ad9974866ea311719b2f976e8b26cecd1b27de/pycryptodomex-3.24.1-cp314-cp314t-macosx_10_15_universal2.whl", hash = "sha256:514d685de4b0227d35d7114047fbd575bf162bff373e07af665aa41eee089dd0", size = 2477998, upload-time = "2026-10-11T19:25:53.619Z" },
+    { url = "https://files.pythonhosted.org/packages/18/c1/d26287bf0e1f8c62ed7d448320a0d6704ddbb27f26506e66ffb4431e8ec5/pycryptodomex-3.24.1-cp314-cp314t-macosx_10_15_x86_64.whl", hash = "sha256:7a81e9be7084af3591912475b22c5d0646a9160f3974b6b7300138781fffdc0d", size = 1646567, upload-time = "2026-10-11T19:25:55.45Z" },
+    { url = "https://files.pythonhosted.org/packages/82/a6/cf6db80b637d9480f7429797002779d5b57ecbeefb91169e0a70826359ca/pycryptodomex-3.24.1-cp314-cp314t-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "sha256:e87928d8f37952ba53d215836cb3d89c63c1367f037d055c3a5b3f4403f4c6b6", size = 2195699, upload-time = "2026-10-11T19:25:57.591Z" },
+    { url = "https://files.pythonhosted.org/packages/2d/20/969e8df9f253b2b9586582e911c2b14ac0a8a0b2cc4f22abbe34c0b1d77c/pycryptodomex-3.24.1-cp314-cp314t-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:f3ed97cdde1d96894057778095238bad3dd94d3e46dc07d6d618e6d4b7700cce", size = 2281499, upload-time = "2026-10-11T19:25:59.648Z" },
+    { url = "https://files.pythonhosted.org/packages/fe/33/6a0fe299a475a6f4dfc4dfd34ce70b158556d31e1a043eefa83651152d90/pycryptodomex-3.24.1-cp314-cp314t-musllinux_1_2_aarch64.whl", hash = "sha256:48d9058dd4c8f3af83e048b6ff83d9c6300841c42579f77fdfab19e49156a512", size = 2187039, upload-time = "2026-10-11T19:26:01.794Z" },
+    { url = "https://files.pythonhosted.org/packages/5f/6f/3580b64c6a166a00f4de5abe977bd4d9a0de893ce1fbe86ddb47851ca7d6/pycryptodomex-3.24.1-cp314-cp314t-musllinux_1_2_x86_64.whl", hash = "sha256:9dd5104a1d8ccf725a3c1b40b21d5ed47530b6499abba30955c174d895c1be2f", size = 2279238, upload-time = "2026-10-11T19:26:03.558Z" },
+    { url = "https://files.pythonhosted.org/packages/4d/55/ed1fdab2642548db89a3153143f4557315f1cba9e0c66166054bc07c2eaa/pycryptodomex-3.24.1-cp314-cp314t-win32.whl", hash = "sha256:569fdbeff936cbd5beb852b3969dc2f58fb255bd221b3f7a8999c035c30ec958", size = 1809532, upload-time = "2026-10-11T19:26:05.592Z" },
+    { url = "https://files.pythonhosted.org/packages/d8/88/8ebf1ae58911beeb7316502decfb0b86913f00a983eecda6cf37ce0c61b6/pycryptodomex-3.24.1-cp314-cp314t-win_amd64.whl", hash = "sha256:3bbcc1807502da4b5d66c94357a99589c8547aa9ad2f9ecfa537b2e9a347538b", size = 1842970, upload-time = "2026-10-11T19:26:07.842Z" },
+    { url = "https://files.pythonhosted.org/packages/ce/e2/32a1ffba448295e642cb51f6fb8a5b796cdbefa23bc61379e7b1bea191ac/pycryptodomex-3.24.1-cp314-cp314t-win_arm64.whl", hash = "sha256:794f32227a480ab3b39971ac4a53dfa8ed444e28c0ddecbdc35f26d038bb46da", size = 1779090, upload-time = "2026-10-11T19:26:09.75Z" },
+    { url = "https://files.pythonhosted.org/packages/bf/ae/48679004ab908818326a62c35586b51ccd6ba0e3a03d0ae637cd13e8df99/pycryptodomex-3.24.1-cp37-abi3-macosx_10_9_universal2.whl", hash = "sha256:9bb353c764c144a9fc03302ef3763ad0c3e75bc7ca41f445cc98455f36da6c59", size = 2477923, upload-time = "2026-10-11T19:26:11.828Z" },
+    { url = "https://files.pythonhosted.org/packages/11/3f/14abc2a50521961dc864266d95898e87e073379ee9407f65c9d259f75018/pycryptodomex-3.24.1-cp37-abi3-macosx_10_9_x86_64.whl", hash = "sha256:eeac2c9acbd2d9f0ca493fdf692ce8245ca37cbebee08c496025868d4b8ef70f", size = 1645300, upload-time = "2026-10-11T19:26:13.583Z" },
+    { url = "https://files.pythonhosted.org/packages/3b/5f/44916f6aa08a08b34b3ce41e2282d36149aa416a8edca9dbecd7c07e0a10/pycryptodomex-3.24.1-cp37-abi3-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "sha256:9a732b9f5603b153dcdc071d6b342f192981907519827f2c1e4aeac41e2b34c2", size = 2194142, upload-time = "2026-10-11T19:26:15.535Z" },
+    { url = "https://files.pythonhosted.org/packages/cf/93/a954b7a8746980e31648943e29772aca0311d0d8a407a3adf5788083b693/pycryptodomex-3.24.1-cp37-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:9b94a8c647c1f80b4c82c7ac9642dda94a71abbb4efa29ad652c410ad7a39879", size = 2280275, upload-time = "2026-10-11T19:26:17.671Z" },
+    { url = "https://files.pythonhosted.org/packages/90/8b/bb2bcc9da5cb1b70415bbfaa4d9dc837a677d021b4da16ed99b0159b42b1/pycryptodomex-3.24.1-cp37-abi3-musllinux_1_2_aarch64.whl", hash = "sha256:bd06ab1d9cf90e8b198daae3b364e9ac23a640d210bb8faddad6627cf2e33be7", size = 2185457, upload-time = "2026-10-11T19:26:19.818Z" },
+    { url = "https://files.pythonhosted.org/packages/e9/54/c123cfe95a7caba1eee9cb92e8482d59f74638b92d9035dff673246c45a2/pycryptodomex-3.24.1-cp37-abi3-musllinux_1_2_x86_64.whl", hash = "sha256:8321c315c4418dfe45a811b792380438ec81185deaaf202dbcd77711b4f51796", size = 2277787, upload-time = "2026-10-11T19:26:21.765Z" },
+    { url = "https://files.pythonhosted.org/packages/5b/58/b06b695ff0f31261e841a25fc1342c8e774167e0d6db5d0a569fe1a137f6/pycryptodomex-3.24.1-cp37-abi3-win32.whl", hash = "sha256:cc64f4e1fc07a155ef31eb9815183a6a8eb13dfd6876ab049c01125223aa0c40", size = 1793402, upload-time = "2026-10-11T19:26:23.589Z" },
+    { url = "https://files.pythonhosted.org/packages/13/4c/2c1963e4154da534a3b3a4d6ee9549f5cac4ecffe986d3b470d08b9c4df6/pycryptodomex-3.24.1-cp37-abi3-win_amd64.whl", hash = "sha256:82eb0dd8a95be97f03527b108ee49f9b86a7c534fa47fa7a510be3eab8ea9acd", size = 1825955, upload-time = "2026-10-11T19:26:25.258Z" },
+    { url = "https://files.pythonhosted.org/packages/57/d2/a3a2158e44f468993583c2a0ae07f8b2a58f349e8cac1b4f039745d80945/pycryptodomex-3.24.1-cp37-abi3-win_arm64.whl", hash = "sha256:a692d2484ca8fa2c69f45c63f2b30cd00b8512834e3a522fc297d981dde5b34c", size = 1760463, upload-time = "2026-10-11T19:26:27.457Z" },
+]
+
+[[package]]
+name = "wa-crypt-tools"
+version = "0.1.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "javaobj-py3" },
+    { name = "protobuf" },
+    { name = "pycryptodomex" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/df/2d/305de9042be8b11bf3a1a1935d0aac6ee203dfa6ae7ab1f9ede44059cdeb/wa_crypt_tools-0.1.0.tar.gz", hash = "sha256:13f93694ac650715039df6de10b1c18b7b0c2f74fe050277ccf1e1e211af889e", size = 1257554, upload-time = "2024-08-23T22:34:21.716Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/6a/8e/54ade7dd52371b538165b02cfb5d6af4eb6032328454909f0998f8bc5655/wa_crypt_tools-0.1.0-py3-none-any.whl", hash = "sha256:79dc754afe96be2a9091494b067d99da3a7d6308be6afb1827e7ecd703527910", size = 53088, upload-time = "2024-08-23T22:34:19.583Z" },
+]
+
+[[package]]
+name = "whatsapp-android-to-ios"
+version = "0.1.0"
+source = { virtual = "." }
+dependencies = [
+    { name = "wa-crypt-tools" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "wa-crypt-tools", specifier = ">=0.1.0" }]

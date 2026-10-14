@@ -1,0 +1,10 @@
+# Python
+.venv/
+__pycache__/
+
+# Private WhatsApp data: keys, backups and decrypted databases
+data/
+*.crypt*
+*.db
+*.sqlite
+*.key

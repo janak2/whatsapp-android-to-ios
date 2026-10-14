@@ -1,0 +1,9 @@
+[project]
+name = "whatsapp-android-to-ios"
+version = "0.1.0"
+description = "Move WhatsApp chat history from Android to iPhone using Ubuntu, based on watoi"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "wa-crypt-tools>=0.1.0",
+]
